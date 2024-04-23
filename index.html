@@ -8,12 +8,64 @@
 </head>
 <body class="bg-black bg-opacity-50 text-white ">
     <h1 class="text-center">Luke Skywalker</h1>
-    <button class="btn btn-primary" type="button" onclick="fetchLucke();fetchHome()">Show character info</button>
+    <button class="btn btn-primary" type="button" onclick="fetchLucke()">Show character info</button>
+    <button class="btn btn-primary" type="button" onclick="fetchHome()">Homeworld</button>
+    <button class="btn btn-primary" type="button" onclick="fetchMovie1()">Films</button>
 
     <div id="lukeInfo">
 
     </div>
-    <div id="lukeHome">
+    <div class="container text-center">
+        <div class="row row-cols-2">
+
+            <div class="col table-dark">
+            <table class="table table-dark">
+                <tr class="table-dark">
+                    <td>
+                        Homeworld
+                    </td>
+                </tr>
+            </table>
+            </div>
+
+            <div class="col">
+                
+                <div id="lukeHome">
+
+                </div>
+
+            </div>
+        
+    </div>
+    
+    <div class="container text-center">
+        <div class="row row-cols-2">
+
+            <div class="col table-dark">
+            <table class="table table-dark">
+                <tr class="table-dark">
+                    <td>
+                        Films
+                    </td>
+                </tr>
+            </table>
+            </div>
+
+            <div class="col">
+
+                <div id="lukeFilm1">
+                </div>
+
+                <div id="lukeFilm2">
+                </div>
+
+                <div id="lukeFilm3">
+                </div>
+
+            </div>
+        
+    </div>
+    
 
     </div>
 </body>
