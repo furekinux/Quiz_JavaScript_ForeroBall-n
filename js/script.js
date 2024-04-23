@@ -88,7 +88,6 @@ function displayHero(data){
         `
     }
 }
-
 //INFO HOMEWORLD
 function fetchHome(){
     let xhr2 = new XMLHttpRequest();
@@ -111,19 +110,118 @@ function displayPlanet(data){
         LukeHome.innerHTML = `<p>Error: ${data.error}</p>`
     } else{
         LukeHome.innerHTML = `
-        
-        <div class="container">
-            <div class="row">
-                <div class="col text-start">
-                    Homeworld
-                </div>
-                <div class="col">
-                    <table class="table table-dark">
-                        
-                        <tr class="table-dark">
 
-                                <td class="table-dark">Name:</td>
-                                <td class="table-dark">${data.name}</td>
+            <table class="table table-dark">
+                        
+                <tr class="table-dark">
+
+                    <td class="table-dark">Name:</td>
+                    <td class="table-dark">${data.name}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <td class="table-dark">Orbital period:</td>
+                    <td class="table-dark">${data.orbital_period}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <td class="table-dark">Diameter:</td>
+                    <td class="table-dark">${data.diameter}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <td class="table-dark">Climate:</td>
+                    <td class="table-dark">${data.climate}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                            <td class="table-dark">Gravity:</td>
+                            <td class="table-dark">${data.gravity}</td>
+
+                        </tr>
+                        </tr><tr class="table-dark">
+
+                            <td class="table-dark">Terrain:</td>
+                            <td class="table-dark">${data.terrain}</td>
+
+                        </tr>
+                        </tr><tr class="table-dark">
+
+                            <td class="table-dark">Surface water:</td>
+                            <td class="table-dark">${data.surface_water}</td>
+
+                        </tr>
+                        </tr><tr class="table-dark">
+
+                            <td class="table-dark">Population:</td>
+                            <td class="table-dark">${data.population}</td>
+
+                        </tr>
+                        </tr><tr class="table-dark">
+
+                            <td class="table-dark">Created:</td>
+                            <td class="table-dark">${data.created}</td>
+
+                        </tr>
+                        </tr><tr class="table-dark">
+
+                            <td class="table-dark">Edited:</td>
+                            <td class="table-dark">${data.edited}</td>
+
+                        </tr></tr><tr class="table-dark">
+
+                            <td class="table-dark">Url:</td>
+                            <td class="table-dark"><a href="${data.url}">${data.url}</a></td>
+
+                        </tr>
+
+                
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        `
+    }
+}
+//INFO FILM 1
+//"https://swapi.py4e.com/api/films/2/"
+//"https://swapi.py4e.com/api/films/3/"
+//"https://swapi.py4e.com/api/films/6/"
+//"https://swapi.py4e.com/api/films/7/"
+
+function fetchMovie1(){
+    let xhr3 = new XMLHttpRequest();
+        let url3 = "https://swapi.py4e.com/api/films/1/"
+        xhr3.open("GET",url3,true);
+        xhr3.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200){
+                let response3 = JSON.parse(this.responseText);
+                console.log(response3)
+                displayMovie1(response3)
+            } else if(this.readyState == 4){
+                console.log("Error :(",this.statusText)
+            }
+        }
+        xhr3.send();
+}
+function displayMovie1(data){
+    let LukeFilm1 = document.getElementById("lukeFilm1");
+    if (data.response === "error"){
+        LukeFilm1.innerHTML = `<p>Error: ${data.error}</p>`
+    } else{
+        LukeFilm1.innerHTML = `
+        
+            <table class="table table-dark">
+                        
+                <tr class="table-dark">
+
+                    <td class="table-dark">Name:</td>
+                    <td class="table-dark">${data.name}</td>
 
                         </tr>
                         <tr class="table-dark">
@@ -187,119 +285,7 @@ function displayPlanet(data){
 
                 
                     </table>
-                </div>
-            </div>
-        </div>
 
         `
     }
-}
-//INFO HOMEWORLD
-function fetchHome(){
-    let xhr2 = new XMLHttpRequest();
-        let url2 = "https://swapi.py4e.com/api/planets/1/"
-        xhr2.open("GET",url2,true);
-        xhr2.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200){
-                let response2 = JSON.parse(this.responseText);
-                console.log(response2)
-                displayPlanet(response2)
-            } else if(this.readyState == 4){
-                console.log("Error :(",this.statusText)
-            }
-        }
-        xhr2.send();
-}
-function displayPlanet(data){
-    let LukeHome = document.getElementById("lukeHome");
-    if (data.response === "error"){
-        LukeHome.innerHTML = `<p>Error: ${data.error}</p>`
-    } else{
-        LukeHome.innerHTML = `
-        
-        <div class="container">
-            <div class="row">
-                <div class="col text-start">
-                    Homeworld
-                </div>
-                <div class="col">
-                    <table class="table table-dark">
-                        
-                        <tr class="table-dark">
-
-                                <td class="table-dark">Name:</td>
-                                <td class="table-dark">${data.name}</td>
-
-                        </tr>
-                        <tr class="table-dark">
-
-                                <td class="table-dark">Orbital period:</td>
-                                <td class="table-dark">${data.orbital_period}</td>
-
-                        </tr>
-                        <tr class="table-dark">
-
-                            <td class="table-dark">Diameter:</td>
-                            <td class="table-dark">${data.diameter}</td>
-
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Climate:</td>
-                            <td class="table-dark">${data.climate}</td>
-
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Gravity:</td>
-                            <td class="table-dark">${data.gravity}</td>
-
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Terrain:</td>
-                            <td class="table-dark">${data.terrain}</td>
-
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Surface water:</td>
-                            <td class="table-dark">${data.surface_water}</td>
-
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Population:</td>
-                            <td class="table-dark">${data.population}</td>
-
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Created:</td>
-                            <td class="table-dark">${data.created}</td>
-
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Edited:</td>
-                            <td class="table-dark">${data.edited}</td>
-
-                        </tr></tr><tr class="table-dark">
-
-                            <td class="table-dark">Url:</td>
-                            <td class="table-dark"><a href="${data.url}">${data.url}</a></td>
-
-                        </tr>
-
-                
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        `
-    }
-}
-
-function fetchInfo(){
-    
 }
