@@ -41,25 +41,25 @@ function displayHero(data){
                 <th  class="table-dark">Hair color</th>
                 <td class="table-dark">${data.hair_color}</td>
 
-            </tr><tr class="table-dark">
+            <tr class="table-dark">
 
                 <th  class="table-dark">Eye color</th>
                 <td class="table-dark">${data.eye_color}</td>
 
             </tr>
-            </tr><tr class="table-dark">
+            <tr class="table-dark">
 
                 <th class="table-dark">Skin color</th>
                 <td class="table-dark">${data.skin_color}</td>
 
             </tr>
-            </tr><tr class="table-dark">
+            <tr class="table-dark">
 
                 <th class="table-dark">Birth year</th>
                 <td class="table-dark">${data.birth_year}</td>
 
             </tr>
-            </tr><tr class="table-dark">
+            <tr class="table-dark">
 
                 <th class="table-dark">Gender</th>
                 <td class="table-dark">${data.gender}</td>
@@ -71,12 +71,12 @@ function displayHero(data){
                 <td class="table-dark">${data.created}</td>
 
             </tr>
-            </tr><tr class="table-dark">
+            <tr class="table-dark">
 
                 <th class="table-dark">Edited</th>
                 <td class="table-dark">${data.edited}</td>
-
-            </tr></tr><tr class="table-dark">
+            </tr>
+            <tr class="table-dark">
 
                 <th class="table-dark">Url</th>
                 <td class="table-dark"><a href="${data.url}">${data.url}</a></td>
@@ -110,81 +110,85 @@ function displayPlanet(data){
         LukeHome.innerHTML = `<p>Error: ${data.error}</p>`
     } else{
         LukeHome.innerHTML = `
-
             <table class="table table-dark">
-                        
-                <tr class="table-dark">
-
-                    <td class="table-dark">Name:</td>
-                    <td class="table-dark">${data.name}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <td class="table-dark">Orbital period:</td>
-                    <td class="table-dark">${data.orbital_period}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <td class="table-dark">Diameter:</td>
-                    <td class="table-dark">${data.diameter}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <td class="table-dark">Climate:</td>
-                    <td class="table-dark">${data.climate}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                            <td class="table-dark">Gravity:</td>
-                            <td class="table-dark">${data.gravity}</td>
-
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Terrain:</td>
-                            <td class="table-dark">${data.terrain}</td>
-
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Surface water:</td>
-                            <td class="table-dark">${data.surface_water}</td>
-
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Population:</td>
-                            <td class="table-dark">${data.population}</td>
-
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Created:</td>
-                            <td class="table-dark">${data.created}</td>
-
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Edited:</td>
-                            <td class="table-dark">${data.edited}</td>
-
-                        </tr></tr><tr class="table-dark">
-
-                            <td class="table-dark">Url:</td>
-                            <td class="table-dark"><a href="${data.url}">${data.url}</a></td>
-
-                        </tr>
-
+                <tr>    
+                    <th class="tablita table-dark">Homeworld</th>
                 
-                    </table>
-                </div>
-            </div>
-        </div>
+                    <td> 
+                        <table class="table table-light">
+                                
+                            <tr class="table-light">
+                
+                                <th class="table-light">Name</th>
+                                <td class="table-light">${data.name}</td>
+                
+                            </tr>
+                            <tr class="table-light">
+                
+                                <th class="table-light">Orbital period</th>
+                                <td class="table-light">${data.orbital_period}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+                
+                                <th class="table-light">Diameter</th>
+                                <td class="table-light">${data.diameter}</td>
+                
+                            </tr>
+                            <tr class="table-light">
+                
+                                <th class="table-light">Climate</th>
+                                <td class="table-light">${data.climate}</td>
+                
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Gravity</th>
+                                <td class="table-light">${data.gravity}</td>
 
+                            </tr>
+                            <tr class="table-dark">
+            
+                                <th class="table-light">Terrain</th>
+                                <td class="table-light">${data.terrain}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Surface water</th>
+                                <td class="table-light">${data.surface_water}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Population</th>
+                                <td class="table-light">${data.population}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Created</th>
+                                <td class="table-light">${data.created}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Edited</th>
+                                <td class="table-light">${data.edited}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Url</th>
+                                <td class="table-light"><a href="${data.url}">${data.url}</a></td>
+            
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+            </table>
+        
         `
     }
 }
@@ -217,75 +221,63 @@ function displayMovie1(data){
         LukeFilm1.innerHTML = `
         
             <table class="table table-dark">
-                        
+                    
+                <tr class="table-light">
+
+                    <th class="table-light">Name</th>
+                    <td class="table-light">${data.title}</td>
+
+                </tr>
                 <tr class="table-dark">
 
-                    <td class="table-dark">Name:</td>
-                    <td class="table-dark">${data.name}</td>
+                    <th class="table-light">Episode ID</th>
+                    <td class="table-light">${data.episode_id}</td>
 
-                        </tr>
-                        <tr class="table-dark">
+                </tr>
+                <tr class="table-dark">
 
-                                <td class="table-dark">Orbital period:</td>
-                                <td class="table-dark">${data.orbital_period}</td>
+                    <th class="table-light">Opening crawl</th>
+                    <td class="table-light">${data.opening_crawl}</td>
 
-                        </tr>
-                        <tr class="table-dark">
+                </tr>
+                <tr class="table-dark">
 
-                            <td class="table-dark">Diameter:</td>
-                            <td class="table-dark">${data.diameter}</td>
+                    <th class="table-light">Director</th>
+                    <td class="table-light">${data.director}</td>
 
-                        </tr><tr class="table-dark">
+                </tr>
+                <tr class="table-dark">
 
-                            <td class="table-dark">Climate:</td>
-                            <td class="table-dark">${data.climate}</td>
+                    <th class="table-light">Producer</th>
+                    <td class="table-light">${data.producer}</td>
 
-                        </tr>
-                        </tr><tr class="table-dark">
+                </tr>
+                <tr class="table-dark">
 
-                            <td class="table-dark">Gravity:</td>
-                            <td class="table-dark">${data.gravity}</td>
+                    <th class="table-light">Release date</th>
+                    <td class="table-light">${data.terrain}</td>
 
-                        </tr>
-                        </tr><tr class="table-dark">
+                </tr>
+                <tr class="table-dark">
 
-                            <td class="table-dark">Terrain:</td>
-                            <td class="table-dark">${data.terrain}</td>
+                    <th class="table-light">Created</th>
+                    <td class="table-light">${data.created}</td>
 
-                        </tr>
-                        </tr><tr class="table-dark">
+                </tr>
+                <tr class="table-dark">
 
-                            <td class="table-dark">Surface water:</td>
-                            <td class="table-dark">${data.surface_water}</td>
+                    <th class="table-light">Edited</th>
+                    <td class="table-light">${data.edited}</td>
 
-                        </tr>
-                        </tr><tr class="table-dark">
+                </tr>
+                <tr class="table-dark">
 
-                            <td class="table-dark">Population:</td>
-                            <td class="table-dark">${data.population}</td>
+                    <th class="table-light">Url</th>
+                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
 
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Created:</td>
-                            <td class="table-dark">${data.created}</td>
-
-                        </tr>
-                        </tr><tr class="table-dark">
-
-                            <td class="table-dark">Edited:</td>
-                            <td class="table-dark">${data.edited}</td>
-
-                        </tr></tr><tr class="table-dark">
-
-                            <td class="table-dark">Url:</td>
-                            <td class="table-dark"><a href="${data.url}">${data.url}</a></td>
-
-                        </tr>
-
-                
-                    </table>
-
+                </tr>
+            </table>
+        
         `
     }
 }
