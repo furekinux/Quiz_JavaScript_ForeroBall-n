@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-black bg-opacity-50 text-white">
+<html lang="en" class="bg-black bg-opacity-60 text-white">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,58 +7,61 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body class="bg-black bg-opacity-50 text-white ">
-    <h1 class="text-center">Luke Skywalker</h1>
-    <!--<button class="btn btn-primary" type="button" onclick="fetchLucke()">Show character info</button>
-    <button class="btn btn-primary" type="button" onclick="fetchHome()">Homeworld</button>
-    <button class="btn btn-primary" type="button" onclick="fetchMovie1()">Films</button>
-    -->
-    <div id="lukeInfo">
+    <style>
+        html{
+            font-size: 1.1em;
+        }
+        img{
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            z-index: 1;
+            position: fixed;
+        }
+        .background{
+            top: 28em;
+            z-index: 99;
+            position:relative;
+     
+            background: linear-gradient(#00000000 0%,#1e1e1ed3 5%);
+            padding: 0.5em;
+        }
+        h1{
+            font-size: 3em;
+            margin-bottom: 0.3em;
+        }
+        .tablita{
+            width: 11em;
+        }
+    </style>
 
-    </div>
-  
+    <img src="https://i.pinimg.com/originals/21/88/12/218812aa2ad2ca50c1a983bf931e129e.png"/>
 
-    <table class="table table-dark">
-        <th class="table-dark">
-            <th>
-                Homeworld
-            </th>
-            <td id="lukeHome"> 
-            <!--<div ></div>-->     
-            </td>
-        </th>
-    </table>
-        
+    <div class="background">
+        <h1 class="text-center">Luke Skywalker</h1>
 
-    
-    <div class="container text-center">
-        <div class="row row-cols-2">
+        <table>
+            <tr><div id="lukeInfo"></div></tr>
+            <tr><div id="lukeHome"></div></tr>
 
-            <div class="col table-dark">
-            <table class="table table-dark">
-                <tr class="table-dark">
-                    <td>
-                        Films
+            <tr>
+                <table class="table table-dark">
+                    <tr>    
+                        <th class="tablita table-dark">Films</th>
+                    
+                        <td> 
+                    
+                    <td id="lukeFilm1"> 
                     </td>
-                </tr>
-            </table>
-            </div>
+            
+                    <tr><td><td>
+                        <td id="lukeFilm2"></td>
+                    </td></td></tr>
 
-            <div class="col">
-
-                <div id="lukeFilm1">
-                </div>
-
-                <div id="lukeFilm2">
-                </div>
-
-                <div id="lukeFilm3">
-                </div>
-
-            </div>
-        
-    </div>
-    
-
+                </tr> 
+                </table>
+            </tr>
+        </table>
     </div>
 </body>
     <script src="/js/script.js"></script>
