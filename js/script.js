@@ -26,59 +26,59 @@ function displayHero(data){
                         
             <tr class="table-dark">
 
-                    <td class="table-dark">Height:</td>
+                    <th class="table-dark">Height</th>
                     <td class="table-dark">${data.height}</td>
 
             </tr>
             <tr class="table-dark">
 
-                    <td class="table-dark">Mass:</td>
-                    <td class="table-dark">${data.mass}</td>
+                    <th  class="table-dark">Mass</th>
+                    <td  class="table-dark">${data.mass}</td>
 
             </tr>
             <tr class="table-dark">
 
-                <td class="table-dark">Hair color:</td>
+                <th  class="table-dark">Hair color</th>
                 <td class="table-dark">${data.hair_color}</td>
 
             </tr><tr class="table-dark">
 
-                <td class="table-dark">Eye color:</td>
+                <th  class="table-dark">Eye color</th>
                 <td class="table-dark">${data.eye_color}</td>
 
             </tr>
             </tr><tr class="table-dark">
 
-                <td class="table-dark">Skin color:</td>
+                <th class="table-dark">Skin color</th>
                 <td class="table-dark">${data.skin_color}</td>
 
             </tr>
             </tr><tr class="table-dark">
 
-                <td class="table-dark">Birth year:</td>
+                <th class="table-dark">Birth year</th>
                 <td class="table-dark">${data.birth_year}</td>
 
             </tr>
             </tr><tr class="table-dark">
 
-                <td class="table-dark">Gender:</td>
+                <th class="table-dark">Gender</th>
                 <td class="table-dark">${data.gender}</td>
 
             </tr>
             <tr class="table-dark">
 
-                <td class="table-dark">Created:</td>
+                <th class="table-dark">Created</th>
                 <td class="table-dark">${data.created}</td>
 
             </tr>
             </tr><tr class="table-dark">
 
-                <td class="table-dark">Edited:</td>
+                <th class="table-dark">Edited</th>
                 <td class="table-dark">${data.edited}</td>
 
             </tr></tr><tr class="table-dark">
 
-                <td class="table-dark">Url:</td>
+                <th class="table-dark">Url</th>
                 <td class="table-dark"><a href="${data.url}">${data.url}</a></td>
 
             </tr>
@@ -289,3 +289,4 @@ function displayMovie1(data){
         `
     }
 }
+window.addEventListener("load", fetchLucke(),fetchHome(), fetchMovie1());
