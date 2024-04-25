@@ -88,21 +88,22 @@ function displayHero(data){
         `
     }
 }
+
 //INFO HOMEWORLD
 function fetchHome(){
-    let xhr2 = new XMLHttpRequest();
-        let url2 = "https://swapi.py4e.com/api/planets/1/"
-        xhr2.open("GET",url2,true);
-        xhr2.onreadystatechange = function(){
+    let xhr = new XMLHttpRequest();
+        let url = "https://swapi.py4e.com/api/planets/1/"
+        xhr.open("GET",url,true);
+        xhr.onreadystatechange = function(){
             if(this.readyState === 4 && this.status === 200){
-                let response2 = JSON.parse(this.responseText);
-                console.log(response2)
-                displayPlanet(response2)
+                let response = JSON.parse(this.responseText);
+                console.log(response)
+                displayPlanet(response)
             } else if(this.readyState == 4){
                 console.log("Error :(",this.statusText)
             }
         }
-        xhr2.send();
+        xhr.send();
 }
 function displayPlanet(data){
     let LukeHome = document.getElementById("lukeHome");
@@ -112,7 +113,7 @@ function displayPlanet(data){
         LukeHome.innerHTML = `
             <table class="table table-dark">
                 <tr>    
-                    <th class="tablita table-dark">Homeworld</th>
+                    <th class="table-dark">Homeworld</th>
                 
                     <td> 
                         <table class="table table-light">
@@ -192,17 +193,13 @@ function displayPlanet(data){
         `
     }
 }
-//INFO FILM 1
-//"https://swapi.py4e.com/api/films/2/"
-//"https://swapi.py4e.com/api/films/3/"
-//"https://swapi.py4e.com/api/films/6/"
-//"https://swapi.py4e.com/api/films/7/"
 
+//INFO FILM
 function fetchMovie1(){
-    let xhr3 = new XMLHttpRequest();
-        let url3 = "https://swapi.py4e.com/api/films/1/"
-        xhr3.open("GET",url3,true);
-        xhr3.onreadystatechange = function(){
+    let xhr = new XMLHttpRequest();
+        let url = "https://swapi.py4e.com/api/films/1/"
+        xhr.open("GET",url,true);
+        xhr.onreadystatechange = function(){
             if(this.readyState === 4 && this.status === 200){
                 let response3 = JSON.parse(this.responseText);
                 console.log(response3)
@@ -211,7 +208,7 @@ function fetchMovie1(){
                 console.log("Error :(",this.statusText)
             }
         }
-        xhr3.send();
+        xhr.send();
 }
 function displayMovie1(data){
     let LukeFilm1 = document.getElementById("lukeFilm1");
@@ -364,5 +361,498 @@ function displayMovie2(data){
         `
     }
 }
+function fetchMovie3(){
+    let xhr = new XMLHttpRequest();
+        let url = "https://swapi.py4e.com/api/films/3/"
+        xhr.open("GET",url,true);
+        xhr.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200){
+                let response3 = JSON.parse(this.responseText);
+                console.log(response3)
+                displayMovie3(response3)
+            } else if(this.readyState == 4){
+                console.log("Error :(",this.statusText)
+            }
+        }
+        xhr.send();
+}
+function displayMovie3(data){
+    let LukeFilm3 = document.getElementById("lukeFilm3");
+    if (data.response === "error"){
+        LukeFilm3.innerHTML = `<p>Error: ${data.error}</p>`
+    } else{
+        LukeFilm3.innerHTML = `
+        
+            <table class="table table-dark">
+                    
+                <tr class="table-light">
 
-window.addEventListener("load", fetchLucke(),fetchHome(), fetchMovie1(), fetchMovie2());
+                    <th class="table-light">Name</th>
+                    <td class="table-light">${data.title}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Episode ID</th>
+                    <td class="table-light">${data.episode_id}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Opening crawl</th>
+                    <td class="table-light">${data.opening_crawl}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Director</th>
+                    <td class="table-light">${data.director}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Producer</th>
+                    <td class="table-light">${data.producer}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Release date</th>
+                    <td class="table-light">${data.release_date}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Created</th>
+                    <td class="table-light">${data.created}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Edited</th>
+                    <td class="table-light">${data.edited}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Url</th>
+                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
+
+                </tr>
+            </table>
+        
+        `
+    }
+}
+function fetchMovie6(){
+    let xhr = new XMLHttpRequest();
+        let url = "https://swapi.py4e.com/api/films/6/"
+        xhr.open("GET",url,true);
+        xhr.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200){
+                let response3 = JSON.parse(this.responseText);
+                console.log(response3)
+                displayMovie6(response3)
+            } else if(this.readyState == 4){
+                console.log("Error :(",this.statusText)
+            }
+        }
+        xhr.send();
+}
+function displayMovie6(data){
+    let LukeFilm6 = document.getElementById("lukeFilm6");
+    if (data.response === "error"){
+        LukeFilm6.innerHTML = `<p>Error: ${data.error}</p>`
+    } else{
+        LukeFilm6.innerHTML = `
+        
+            <table class="table table-dark">
+                    
+                <tr class="table-light">
+
+                    <th class="table-light">Name</th>
+                    <td class="table-light">${data.title}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Episode ID</th>
+                    <td class="table-light">${data.episode_id}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Opening crawl</th>
+                    <td class="table-light">${data.opening_crawl}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Director</th>
+                    <td class="table-light">${data.director}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Producer</th>
+                    <td class="table-light">${data.producer}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Release date</th>
+                    <td class="table-light">${data.release_date}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Created</th>
+                    <td class="table-light">${data.created}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Edited</th>
+                    <td class="table-light">${data.edited}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Url</th>
+                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
+
+                </tr>
+            </table>
+        
+        `
+    }
+}
+function fetchMovie7(){
+    let xhr = new XMLHttpRequest();
+        let url = "https://swapi.py4e.com/api/films/7/"
+        xhr.open("GET",url,true);
+        xhr.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200){
+                let response3 = JSON.parse(this.responseText);
+                console.log(response3)
+                displayMovie7(response3)
+            } else if(this.readyState == 4){
+                console.log("Error :(",this.statusText)
+            }
+        }
+        xhr.send();
+}
+function displayMovie7(data){
+    let LukeFilm7 = document.getElementById("lukeFilm7");
+    if (data.response === "error"){
+        LukeFilm7.innerHTML = `<p>Error: ${data.error}</p>`
+    } else{
+        LukeFilm7.innerHTML = `
+        
+            <table class="table table-dark">
+                    
+                <tr class="table-light">
+
+                    <th class="table-light">Name</th>
+                    <td class="table-light">${data.title}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Episode ID</th>
+                    <td class="table-light">${data.episode_id}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Opening crawl</th>
+                    <td class="table-light">${data.opening_crawl}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Director</th>
+                    <td class="table-light">${data.director}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Producer</th>
+                    <td class="table-light">${data.producer}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Release date</th>
+                    <td class="table-light">${data.release_date}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Created</th>
+                    <td class="table-light">${data.created}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Edited</th>
+                    <td class="table-light">${data.edited}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Url</th>
+                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
+
+                </tr>
+            </table>
+        
+        `
+    }
+}
+function fetchMovies(){
+    fetchMovie1()
+    fetchMovie2()
+    fetchMovie3()
+    fetchMovie6()
+    fetchMovie7()
+}
+
+//SPECIES
+function fetchSpecies(){
+    let xhr = new XMLHttpRequest();
+        let url = "https://swapi.py4e.com/api/species/1/"
+        xhr.open("GET",url,true);
+        xhr.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200){
+                let response = JSON.parse(this.responseText);
+                console.log(response)
+                displaySpecies(response)
+            } else if(this.readyState == 4){
+                console.log("Error :(",this.statusText)
+            }
+        }
+        xhr.send();
+}
+function displaySpecies(data){
+    let LukeSpecies = document.getElementById("lukeSpecies");
+    if (data.response === "error"){
+        LukeSpecies.innerHTML = `<p>Error: ${data.error}</p>`
+    } else{
+        LukeSpecies.innerHTML = `
+            <table class="table table-dark">
+                  
+                    
+                    <td> 
+                        <table class="table table-light">
+                                
+                            <tr class="table-light">
+                
+                                <th class="table-light">Name</th>
+                                <td class="table-light">${data.name}</td>
+                
+                            </tr>
+                            <tr class="table-light">
+                
+                                <th class="table-light">Classification</th>
+                                <td class="table-light">${data.classification}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+                
+                                <th class="table-light">Designation</th>
+                                <td class="table-light">${data.designation}</td>
+                
+                            </tr>
+                            <tr class="table-light">
+                
+                                <th class="table-light">Average height</th>
+                                <td class="table-light">${data.average_height}</td>
+                
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Skin colors</th>
+                                <td class="table-light">${data.skin_colors}</td>
+
+                            </tr>
+                            <tr class="table-dark">
+            
+                                <th class="table-light">Hair colors</th>
+                                <td class="table-light">${data.hair_colors}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Eye colors</th>
+                                <td class="table-light">${data.eye_colors}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Average lifespan</th>
+                                <td class="table-light">${data.average_lifespan}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">language</th>
+                                <td class="table-light">${data.language}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Created</th>
+                                <td class="table-light">${data.created}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Edited</th>
+                                <td class="table-light">${data.edited}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Url</th>
+                                <td class="table-light"><a href="${data.url}">${data.url}</a></td>
+            
+                            </tr>
+                        </table>
+                    </td>
+                
+
+            </table>
+        
+        `
+    }
+}
+
+//https://swapi.py4e.com/api/vehicles/14/
+//https://swapi.py4e.com/api/vehicles/30/
+
+
+function fetchVehicle1(){
+    let xhr = new XMLHttpRequest();
+        let url = "https://swapi.py4e.com/api/vehicles/14/"
+        xhr.open("GET",url,true);
+        xhr.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200){
+                let response = JSON.parse(this.responseText);
+                console.log(response)
+                displayVehicle1(response)
+            } else if(this.readyState == 4){
+                console.log("Error :(",this.statusText)
+            }
+        }
+        xhr.send();
+}
+function displayVehicle1(data){
+    let LukeVehi = document.getElementById("vehicles1");
+    if (data.response === "error"){
+        LukeVehi.innerHTML = `<p>Error: ${data.error}</p>`
+    } else{
+        LukeVehi.innerHTML = `
+            <table class="table table-dark">
+                  
+                    
+                    <td> 
+                        <table class="table table-light">
+                                
+                            <tr class="table-light">
+                
+                                <th class="table-light">Name</th>
+                                <td class="table-light">${data.name}</td>
+                
+                            </tr>
+                            <tr class="table-light">
+                
+                                <th class="table-light">Model</th>
+                                <td class="table-light">${data.classification}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+                
+                                <th class="table-light">Manufacturer</th>
+                                <td class="table-light">${data.designation}</td>
+                
+                            </tr>
+                            <tr class="table-light">
+                
+                                <th class="table-light">Cost in credits</th>
+                                <td class="table-light">${data.average_height}</td>
+                
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Length</th>
+                                <td class="table-light">${data.skin_colors}</td>
+
+                            </tr>
+                            <tr class="table-dark">
+            
+                                <th class="table-light">Max atmosphering speed</th>
+                                <td class="table-light">${data.hair_colors}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Crew</th>
+                                <td class="table-light">${data.eye_colors}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Passengers</th>
+                                <td class="table-light">${data.average_lifespan}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Cargo capacity</th>
+                                <td class="table-light">${data.language}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Consumables</th>
+                                <td class="table-light">${data.language}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Vehicle class</th>
+                                <td class="table-light">${data.language}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Created</th>
+                                <td class="table-light">${data.created}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Edited</th>
+                                <td class="table-light">${data.edited}</td>
+            
+                            </tr>
+                            <tr class="table-light">
+            
+                                <th class="table-light">Url</th>
+                                <td class="table-light"><a href="${data.url}">${data.url}</a></td>
+            
+                            </tr>
+                        </table>
+                    </td>
+                
+
+            </table>
+        
+        `
+    }
+}
+function fetchVehi(){
+    fetchVehicle1()
+}
+window.addEventListener("load", fetchLucke(),fetchHome(), fetchMovies(),fetchSpecies(),fetchVehi());
