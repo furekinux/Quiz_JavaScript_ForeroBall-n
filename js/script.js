@@ -255,7 +255,7 @@ function displayMovie1(data){
                 <tr class="table-dark">
 
                     <th class="table-light">Release date</th>
-                    <td class="table-light">${data.terrain}</td>
+                    <td class="table-light">${data.release_date}</td>
 
                 </tr>
                 <tr class="table-dark">
@@ -281,4 +281,88 @@ function displayMovie1(data){
         `
     }
 }
-window.addEventListener("load", fetchLucke(),fetchHome(), fetchMovie1());
+function fetchMovie2(){
+    let xhr = new XMLHttpRequest();
+        let url = "https://swapi.py4e.com/api/films/2/"
+        xhr.open("GET",url,true);
+        xhr.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200){
+                let response3 = JSON.parse(this.responseText);
+                console.log(response3)
+                displayMovie2(response3)
+            } else if(this.readyState == 4){
+                console.log("Error :(",this.statusText)
+            }
+        }
+        xhr.send();
+}
+function displayMovie2(data){
+    let LukeFilm2 = document.getElementById("lukeFilm2");
+    if (data.response === "error"){
+        LukeFilm2.innerHTML = `<p>Error: ${data.error}</p>`
+    } else{
+        LukeFilm2.innerHTML = `
+        
+            <table class="table table-dark">
+                    
+                <tr class="table-light">
+
+                    <th class="table-light">Name</th>
+                    <td class="table-light">${data.title}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Episode ID</th>
+                    <td class="table-light">${data.episode_id}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Opening crawl</th>
+                    <td class="table-light">${data.opening_crawl}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Director</th>
+                    <td class="table-light">${data.director}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Producer</th>
+                    <td class="table-light">${data.producer}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Release date</th>
+                    <td class="table-light">${data.release_date}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Created</th>
+                    <td class="table-light">${data.created}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Edited</th>
+                    <td class="table-light">${data.edited}</td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <th class="table-light">Url</th>
+                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
+
+                </tr>
+            </table>
+        
+        `
+    }
+}
+
+window.addEventListener("load", fetchLucke(),fetchHome(), fetchMovie1(), fetchMovie2());
