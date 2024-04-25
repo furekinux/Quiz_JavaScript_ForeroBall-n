@@ -617,7 +617,6 @@ function fetchMovies(){
     fetchMovie6()
     fetchMovie7()
 }
-
 //SPECIES
 function fetchSpecies(){
     let xhr = new XMLHttpRequest();
@@ -640,98 +639,83 @@ function displaySpecies(data){
         LukeSpecies.innerHTML = `<p>Error: ${data.error}</p>`
     } else{
         LukeSpecies.innerHTML = `
-            <table class="table table-dark">
-                  
-                    
-                    <td> 
-                        <table class="table table-light">
-                                
-                            <tr class="table-light">
+            <table class="table table-dark">     
+                <tr class="table-light">
                 
-                                <th class="table-light">Name</th>
-                                <td class="table-light">${data.name}</td>
+                    <th class="table-light">Name</th>
+                    <td class="table-light">${data.name}</td>
                 
-                            </tr>
-                            <tr class="table-light">
+                </tr>
+                <tr class="table-light">
                 
-                                <th class="table-light">Classification</th>
-                                <td class="table-light">${data.classification}</td>
+                    <th class="table-light">Classification</th>
+                    <td class="table-light">${data.classification}</td>
             
-                            </tr>
-                            <tr class="table-light">
+                </tr>
+                <tr class="table-light">
                 
-                                <th class="table-light">Designation</th>
-                                <td class="table-light">${data.designation}</td>
+                    <th class="table-light">Designation</th>
+                    <td class="table-light">${data.designation}</td>
                 
-                            </tr>
-                            <tr class="table-light">
+                </tr>
+                <tr class="table-light">
                 
-                                <th class="table-light">Average height</th>
-                                <td class="table-light">${data.average_height}</td>
+                    <th class="table-light">Average height</th>
+                    <td class="table-light">${data.average_height}</td>
                 
-                            </tr>
-                            <tr class="table-light">
+                </tr>
+                <tr class="table-light">
             
-                                <th class="table-light">Skin colors</th>
-                                <td class="table-light">${data.skin_colors}</td>
+                    <th class="table-light">Skin colors</th>
+                    <td class="table-light">${data.skin_colors}</td>
 
-                            </tr>
-                            <tr class="table-dark">
+                </tr>
+                <tr class="table-dark">
             
-                                <th class="table-light">Hair colors</th>
-                                <td class="table-light">${data.hair_colors}</td>
+                    <th class="table-light">Hair colors</th>
+                    <td class="table-light">${data.hair_colors}</td>
             
-                            </tr>
-                            <tr class="table-light">
+                </tr>
+                <tr class="table-light">
             
-                                <th class="table-light">Eye colors</th>
-                                <td class="table-light">${data.eye_colors}</td>
+                    <th class="table-light">Eye colors</th>
+                    <td class="table-light">${data.eye_colors}</td>
             
-                            </tr>
-                            <tr class="table-light">
+                </tr>
+                <tr class="table-light">
             
-                                <th class="table-light">Average lifespan</th>
-                                <td class="table-light">${data.average_lifespan}</td>
+                    <th class="table-light">Average lifespan</th>
+                    <td class="table-light">${data.average_lifespan}</td>
             
-                            </tr>
-                            <tr class="table-light">
+                </tr>
+                <tr class="table-light">
             
-                                <th class="table-light">language</th>
-                                <td class="table-light">${data.language}</td>
+                    <th class="table-light">language</th>
+                    <td class="table-light">${data.language}</td>
             
-                            </tr>
-                            <tr class="table-light">
+                </tr>
+                <tr class="table-light">
             
-                                <th class="table-light">Created</th>
-                                <td class="table-light">${data.created}</td>
+                    <th class="table-light">Created</th>
+                    <td class="table-light">${data.created}</td>
             
-                            </tr>
-                            <tr class="table-light">
+                </tr>
+                <tr class="table-light">
             
-                                <th class="table-light">Edited</th>
-                                <td class="table-light">${data.edited}</td>
+                    <th class="table-light">Edited</th>
+                    <td class="table-light">${data.edited}</td>
             
-                            </tr>
-                            <tr class="table-light">
+                </tr>
+                <tr class="table-light">
             
-                                <th class="table-light">Url</th>
-                                <td class="table-light"><a href="${data.url}">${data.url}</a></td>
-            
-                            </tr>
-                        </table>
-                    </td>
-                
-
+                    <th class="table-light">Url</th>
+                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
+                </tr>
             </table>
-        
         `
     }
 }
-
-//https://swapi.py4e.com/api/vehicles/14/
-//https://swapi.py4e.com/api/vehicles/30/
-
-
+//VEHICLES
 function fetchVehicle1(){
     let xhr = new XMLHttpRequest();
         let url = "https://swapi.py4e.com/api/vehicles/14/"
@@ -754,105 +738,213 @@ function displayVehicle1(data){
     } else{
         LukeVehi.innerHTML = `
             <table class="table table-dark">
-                  
-                    
-                    <td> 
-                        <table class="table table-light">
-                                
-                            <tr class="table-light">
-                
-                                <th class="table-light">Name</th>
-                                <td class="table-light">${data.name}</td>
-                
-                            </tr>
-                            <tr class="table-light">
-                
-                                <th class="table-light">Model</th>
-                                <td class="table-light">${data.classification}</td>
-            
-                            </tr>
-                            <tr class="table-light">
-                
-                                <th class="table-light">Manufacturer</th>
-                                <td class="table-light">${data.designation}</td>
-                
-                            </tr>
-                            <tr class="table-light">
-                
-                                <th class="table-light">Cost in credits</th>
-                                <td class="table-light">${data.average_height}</td>
-                
-                            </tr>
-                            <tr class="table-light">
-            
-                                <th class="table-light">Length</th>
-                                <td class="table-light">${data.skin_colors}</td>
 
-                            </tr>
-                            <tr class="table-dark">
-            
-                                <th class="table-light">Max atmosphering speed</th>
-                                <td class="table-light">${data.hair_colors}</td>
-            
-                            </tr>
-                            <tr class="table-light">
-            
-                                <th class="table-light">Crew</th>
-                                <td class="table-light">${data.eye_colors}</td>
-            
-                            </tr>
-                            <tr class="table-light">
-            
-                                <th class="table-light">Passengers</th>
-                                <td class="table-light">${data.average_lifespan}</td>
-            
-                            </tr>
-                            <tr class="table-light">
-            
-                                <th class="table-light">Cargo capacity</th>
-                                <td class="table-light">${data.language}</td>
-            
-                            </tr>
-                            <tr class="table-light">
-            
-                                <th class="table-light">Consumables</th>
-                                <td class="table-light">${data.language}</td>
-            
-                            </tr>
-                            <tr class="table-light">
-            
-                                <th class="table-light">Vehicle class</th>
-                                <td class="table-light">${data.language}</td>
-            
-                            </tr>
-                            <tr class="table-light">
-            
-                                <th class="table-light">Created</th>
-                                <td class="table-light">${data.created}</td>
-            
-                            </tr>
-                            <tr class="table-light">
-            
-                                <th class="table-light">Edited</th>
-                                <td class="table-light">${data.edited}</td>
-            
-                            </tr>
-                            <tr class="table-light">
-            
-                                <th class="table-light">Url</th>
-                                <td class="table-light"><a href="${data.url}">${data.url}</a></td>
-            
-                            </tr>
-                        </table>
-                    </td>
+                <tr class="table-light">
                 
+                    <th class="table-light">Name</th>
+                    <td class="table-light">${data.name}</td>
+                
+                </tr>
+                <tr class="table-light">
+                
+                    <th class="table-light">Model</th>
+                    <td class="table-light">${data.model}</td>
+            
+                </tr>
+                <tr class="table-light">
+                
+                    <th class="table-light">Manufacturer</th>
+                    <td class="table-light">${data.manufacturer}</td>
+                
+                </tr>
+                <tr class="table-light">
+                
+                    <th class="table-light">Cost in credits</th>
+                    <td class="table-light">${data.cost_in_credits}</td>
+                
+                </tr>
+                <tr class="table-light">
+            
+                    <th class="table-light">Length</th>
+                    <td class="table-light">${data.length}</td>
+
+                </tr>
+                <tr class="table-dark">
+            
+                    <th class="table-light">Max atmosphering speed</th>
+                    <td class="table-light">${data.max_atmosphering_speed}</td>
+            
+                </tr>
+                <tr class="table-light">
+            
+                    <th class="table-light">Crew</th>
+                    <td class="table-light">${data.crew}</td>
+            
+                </tr>
+                <tr class="table-light">
+            
+                    <th class="table-light">Passengers</th>
+                    <td class="table-light">${data.passengers}</td>
+            
+                </tr>
+                <tr class="table-light">
+            
+                    <th class="table-light">Cargo capacity</th>
+                    <td class="table-light">${data.cargo_capacity}</td>
+            
+                </tr>
+                <tr class="table-light">
+            
+                    <th class="table-light">Consumables</th>
+                    <td class="table-light">${data.consumables}</td>
+            
+                </tr>
+                <tr class="table-light">
+            
+                    <th class="table-light">Vehicle class</th>
+                    <td class="table-light">${data.vehicle_class}</td>
+            
+                </tr>
+                <tr class="table-light">
+            
+                    <th class="table-light">Created</th>
+                    <td class="table-light">${data.created}</td>
+            
+                </tr>
+                <tr class="table-light">
+            
+                    <th class="table-light">Edited</th>
+                    <td class="table-light">${data.edited}</td>
+            
+                </tr>
+                <tr class="table-light">
+            
+                    <th class="table-light">Url</th>
+                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
+            
+                </tr>
 
             </table>
-        
         `
     }
 }
+function fetchVehicle2(){
+    let xhr = new XMLHttpRequest();
+        let url = "https://swapi.py4e.com/api/vehicles/30/"
+        xhr.open("GET",url,true);
+        xhr.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200){
+                let response = JSON.parse(this.responseText);
+                console.log(response)
+                displayVehicle2(response)
+            } else if(this.readyState == 4){
+                console.log("Error :(",this.statusText)
+            }
+        }
+        xhr.send();
+}
+function displayVehicle2(data){
+    let LukeVehi = document.getElementById("vehicles2");
+    if (data.response === "error"){
+        LukeVehi.innerHTML = `<p>Error: ${data.error}</p>`
+    } else{
+        LukeVehi.innerHTML = `
+            <table class="table table-dark">
+              
+                <table class="table table-light">
+                                
+                    <tr class="table-light">
+                
+                        <th class="table-light">Name</th>
+                        <td class="table-light">${data.name}</td>
+                
+                    </tr>
+                    <tr class="table-light">
+                
+                        <th class="table-light">Model</th>
+                        <td class="table-light">${data.model}</td>
+            
+                    </tr>
+                    <tr class="table-light">
+                
+                        <th class="table-light">Manufacturer</th>
+                        <td class="table-light">${data.manufacturer}</td>
+                
+                    </tr>
+                    <tr class="table-light">
+                
+                        <th class="table-light">Cost in credits</th>
+                        <td class="table-light">${data.cost_in_credits}</td>
+                
+                    </tr>
+                    <tr class="table-light">
+            
+                        <th class="table-light">Length</th>
+                        <td class="table-light">${data.length}</td>
+
+                    </tr>
+                    <tr class="table-dark">
+            
+                        <th class="table-light">Max atmosphering speed</th>
+                        <td class="table-light">${data.max_atmosphering_speed}</td>
+            
+                    </tr>
+                    <tr class="table-light">
+            
+                        <th class="table-light">Crew</th>
+                        <td class="table-light">${data.crew}</td>
+            
+                    </tr>
+                    <tr class="table-light">
+            
+                        <th class="table-light">Passengers</th>
+                        <td class="table-light">${data.passengers}</td>
+            
+                    </tr>
+                    <tr class="table-light">
+            
+                        <th class="table-light">Cargo capacity</th>
+                        <td class="table-light">${data.cargo_capacity}</td>
+            
+                    </tr>
+                    <tr class="table-light">
+            
+                        <th class="table-light">Consumables</th>
+                        <td class="table-light">${data.consumables}</td>
+            
+                    </tr>
+                    <tr class="table-light">
+            
+                        <th class="table-light">Vehicle class</th>
+                        <td class="table-light">${data.vehicle_class}</td>
+            
+                    </tr>
+                    <tr class="table-light">
+            
+                        <th class="table-light">Created</th>
+                        <td class="table-light">${data.created}</td>
+            
+                    </tr>
+                    <tr class="table-light">
+            
+                        <th class="table-light">Edited</th>
+                        <td class="table-light">${data.edited}</td>
+            
+                    </tr>
+                    <tr class="table-light">
+            
+                        <th class="table-light">Url</th>
+                        <td class="table-light"><a href="${data.url}">${data.url}</a></td>
+            
+                    </tr>
+            </table>
+          
+        `
+    }
+}
+
 function fetchVehi(){
     fetchVehicle1()
+    fetchVehicle2()
 }
 window.addEventListener("load", fetchLucke(),fetchHome(), fetchMovies(),fetchSpecies(),fetchVehi());
