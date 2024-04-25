@@ -1,27 +1,26 @@
-//INFO PERSONAJE
-function fetchLucke(){
+//INFO PERSONAJE Check
+function fetchStar(){
     let xhr = new XMLHttpRequest();
-    let url = "https://swapi.py4e.com/api/people/1/"
+    let starId = document.getElementById("idstar").value;
+    let url = `https://swapi.py4e.com/api/people/${starId}/`
     xhr.open("GET",url,true);
     xhr.onreadystatechange = function(){
         if(this.readyState === 4 && this.status === 200){
             let response = JSON.parse(this.responseText);
-            console.log(response)
-            displayHero(response)
+            displayStar(response)
 
         } else if(this.readyState == 4){
             console.log("Error :(",this.statusText)
         }
     }
     xhr.send();
-
 }
-function displayHero(data){
-    let LukeInfo = document.getElementById("lukeInfo");
+function displayStar(data){
+    let StarInfo = document.getElementById("starInfo");
     if (data.response === "error"){
-        LukeInfo.innerHTML = `<p>Error: ${data.error}</p>`
+        StarInfo.innerHTML = `<p>Error: ${data.error}</p>`
     } else{
-        LukeInfo.innerHTML = `
+        StarInfo.innerHTML = `
         <table class="table table-dark">
                         
             <tr class="table-dark">
@@ -65,6 +64,17 @@ function displayHero(data){
                 <td class="table-dark">${data.gender}</td>
 
             </tr>
+
+            <tr id="homeworld"></tr>
+
+            <tr id="films"></tr>
+
+            <tr id="starSpecies"></tr>
+
+            <tr id="vehicles"></tr>
+
+            <tr id="starships"></tr>
+
             <tr class="table-dark">
 
                 <th class="table-dark">Created</th>
@@ -87,30 +97,51 @@ function displayHero(data){
         </table>
         `
     }
+    let StarName = document.getElementById("name");
+    if (data.response === "error"){
+        StarName.innerHTML = `<p>Error: ${data.error}</p>`
+    } else{
+        StarName.innerHTML = `${data.name}`
+    }
 }
-
-//INFO HOMEWORLD
+//INFO HOMEWORLD Check
 function fetchHome(){
     let xhr = new XMLHttpRequest();
-        let url = "https://swapi.py4e.com/api/planets/1/"
-        xhr.open("GET",url,true);
+    let starId = document.getElementById("idstar").value;
+    let urlStar = `https://swapi.py4e.com/api/people/${starId}/`
+    xhr.open("GET",urlStar,true);
+    xhr.onreadystatechange = function(){
+    if(this.readyState === 4 && this.status === 200){
+        let response = JSON.parse(this.responseText);
+        let homeworldurl = response.homeworld
+        let xhr = new XMLHttpRequest();
+        let home_url = homeworldurl
+        xhr.open("GET",home_url,true);
         xhr.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200){
-                let response = JSON.parse(this.responseText);
-                console.log(response)
-                displayPlanet(response)
-            } else if(this.readyState == 4){
-                console.log("Error :(",this.statusText)
+        
+        if(this.readyState === 4 && this.status === 200){
+            let homeworld = JSON.parse(this.responseText);
+            displayPlanet(homeworld)
+
+        } else if(this.readyState == 4){
+            console.log("Error :(",this.statusText)
             }
         }
-        xhr.send();
+            xhr.send();
+
+    } else if(this.readyState == 4){
+        console.log("Error :(",this.statusText)
+        }
+    }
+    xhr.send();
+
 }
 function displayPlanet(data){
-    let LukeHome = document.getElementById("lukeHome");
+    let hw = document.getElementById("homeworld");
     if (data.response === "error"){
-        LukeHome.innerHTML = `<p>Error: ${data.error}</p>`
+        hw.innerHTML = `<p>Error: ${data.error}</p>`
     } else{
-        LukeHome.innerHTML = `
+        hw.innerHTML = `
             <table class="table table-dark">
                 <tr>    
                     <th class="table-dark">Homeworld</th>
@@ -195,450 +226,159 @@ function displayPlanet(data){
 }
 
 //INFO FILM
-function fetchMovie1(){
+function fetchMovies(){
     let xhr = new XMLHttpRequest();
-        let url = "https://swapi.py4e.com/api/films/1/"
-        xhr.open("GET",url,true);
+    let starId = document.getElementById("idstar").value;
+    let urlStar = `https://swapi.py4e.com/api/people/${starId}/`
+    xhr.open("GET",urlStar,true);
+    xhr.onreadystatechange = function(){
+    if(this.readyState === 4 && this.status === 200){
+        let response = JSON.parse(this.responseText);
+        let homeworldurl = response.homeworld
+        let xhr = new XMLHttpRequest();
+        let home_url = homeworldurl
+        xhr.open("GET",home_url,true);
         xhr.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200){
-                let response3 = JSON.parse(this.responseText);
-                console.log(response3)
-                displayMovie1(response3)
-            } else if(this.readyState == 4){
-                console.log("Error :(",this.statusText)
+        
+        if(this.readyState === 4 && this.status === 200){
+            let homeworld = JSON.parse(this.responseText);
+            displayPlanet(homeworld)
+
+        } else if(this.readyState == 4){
+            console.log("Error :(",this.statusText)
             }
         }
-        xhr.send();
+            xhr.send();
+
+    } else if(this.readyState == 4){
+        console.log("Error :(",this.statusText)
+        }
+    }
+    xhr.send();
 }
-function displayMovie1(data){
-    let LukeFilm1 = document.getElementById("lukeFilm1");
+function displayMovies(data){
+    let LukeFilm1 = document.getElementById("films");
     if (data.response === "error"){
         LukeFilm1.innerHTML = `<p>Error: ${data.error}</p>`
     } else{
         LukeFilm1.innerHTML = `
+        <table class="table table-dark">
+            <tr>    
+                <th class="table-dark">Vehicles</th>
+                
+            <td id="the_movies"></td>
+                
         
             <table class="table table-dark">
-                    
-                <tr class="table-light">
+            <tr>    
+                <th class="table-dark">Films</th>
+                <td> 
+                    <table class="table table-light">   
+                    <tr class="table-light">
 
-                    <th class="table-light">Name</th>
-                    <td class="table-light">${data.title}</td>
+                        <th class="table-light">Name</th>
+                        <td class="table-light">${data.title}</td>
 
-                </tr>
-                <tr class="table-dark">
+                    </tr>
+                    <tr class="table-dark">
 
-                    <th class="table-light">Episode ID</th>
-                    <td class="table-light">${data.episode_id}</td>
+                        <th class="table-light">Episode ID</th>
+                        <td class="table-light">${data.episode_id}</td>
 
-                </tr>
-                <tr class="table-dark">
+                    </tr>
+                    <tr class="table-dark">
 
-                    <th class="table-light">Opening crawl</th>
-                    <td class="table-light">${data.opening_crawl}</td>
+                        <th class="table-light">Opening crawl</th>
+                        <td class="table-light">${data.opening_crawl}</td>
 
-                </tr>
-                <tr class="table-dark">
+                    </tr>
+                    <tr class="table-dark">
 
-                    <th class="table-light">Director</th>
-                    <td class="table-light">${data.director}</td>
+                        <th class="table-light">Director</th>
+                        <td class="table-light">${data.director}</td>
 
-                </tr>
-                <tr class="table-dark">
+                    </tr>
+                    <tr class="table-dark">
 
-                    <th class="table-light">Producer</th>
-                    <td class="table-light">${data.producer}</td>
+                        <th class="table-light">Producer</th>
+                        <td class="table-light">${data.producer}</td>
 
-                </tr>
-                <tr class="table-dark">
+                    </tr>
+                    <tr class="table-dark">
 
-                    <th class="table-light">Release date</th>
-                    <td class="table-light">${data.release_date}</td>
+                        <th class="table-light">Release date</th>
+                        <td class="table-light">${data.release_date}</td>
 
-                </tr>
-                <tr class="table-dark">
+                    </tr>
+                    <tr class="table-dark">
 
-                    <th class="table-light">Created</th>
-                    <td class="table-light">${data.created}</td>
+                        <th class="table-light">Created</th>
+                        <td class="table-light">${data.created}</td>
 
-                </tr>
-                <tr class="table-dark">
+                    </tr>
+                    <tr class="table-dark">
 
-                    <th class="table-light">Edited</th>
-                    <td class="table-light">${data.edited}</td>
+                        <th class="table-light">Edited</th>
+                        <td class="table-light">${data.edited}</td>
 
-                </tr>
-                <tr class="table-dark">
+                    </tr>
+                    <tr class="table-dark">
 
-                    <th class="table-light">Url</th>
-                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
+                        <th class="table-light">Url</th>
+                        <td class="table-light"><a href="${data.url}">${data.url}</a></td>
 
-                </tr>
+                    </tr>
+                </table>
+            </tr>
             </table>
-        
+            </tr>
+        </table>
         `
     }
 }
-function fetchMovie2(){
-    let xhr = new XMLHttpRequest();
-        let url = "https://swapi.py4e.com/api/films/2/"
-        xhr.open("GET",url,true);
-        xhr.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200){
-                let response3 = JSON.parse(this.responseText);
-                console.log(response3)
-                displayMovie2(response3)
-            } else if(this.readyState == 4){
-                console.log("Error :(",this.statusText)
-            }
-        }
-        xhr.send();
-}
-function displayMovie2(data){
-    let LukeFilm2 = document.getElementById("lukeFilm2");
-    if (data.response === "error"){
-        LukeFilm2.innerHTML = `<p>Error: ${data.error}</p>`
-    } else{
-        LukeFilm2.innerHTML = `
-        
-            <table class="table table-dark">
-                    
-                <tr class="table-light">
 
-                    <th class="table-light">Name</th>
-                    <td class="table-light">${data.title}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Episode ID</th>
-                    <td class="table-light">${data.episode_id}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Opening crawl</th>
-                    <td class="table-light">${data.opening_crawl}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Director</th>
-                    <td class="table-light">${data.director}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Producer</th>
-                    <td class="table-light">${data.producer}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Release date</th>
-                    <td class="table-light">${data.release_date}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Created</th>
-                    <td class="table-light">${data.created}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Edited</th>
-                    <td class="table-light">${data.edited}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Url</th>
-                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
-
-                </tr>
-            </table>
-        
-        `
-    }
-}
-function fetchMovie3(){
-    let xhr = new XMLHttpRequest();
-        let url = "https://swapi.py4e.com/api/films/3/"
-        xhr.open("GET",url,true);
-        xhr.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200){
-                let response3 = JSON.parse(this.responseText);
-                console.log(response3)
-                displayMovie3(response3)
-            } else if(this.readyState == 4){
-                console.log("Error :(",this.statusText)
-            }
-        }
-        xhr.send();
-}
-function displayMovie3(data){
-    let LukeFilm3 = document.getElementById("lukeFilm3");
-    if (data.response === "error"){
-        LukeFilm3.innerHTML = `<p>Error: ${data.error}</p>`
-    } else{
-        LukeFilm3.innerHTML = `
-        
-            <table class="table table-dark">
-                    
-                <tr class="table-light">
-
-                    <th class="table-light">Name</th>
-                    <td class="table-light">${data.title}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Episode ID</th>
-                    <td class="table-light">${data.episode_id}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Opening crawl</th>
-                    <td class="table-light">${data.opening_crawl}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Director</th>
-                    <td class="table-light">${data.director}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Producer</th>
-                    <td class="table-light">${data.producer}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Release date</th>
-                    <td class="table-light">${data.release_date}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Created</th>
-                    <td class="table-light">${data.created}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Edited</th>
-                    <td class="table-light">${data.edited}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Url</th>
-                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
-
-                </tr>
-            </table>
-        
-        `
-    }
-}
-function fetchMovie6(){
-    let xhr = new XMLHttpRequest();
-        let url = "https://swapi.py4e.com/api/films/6/"
-        xhr.open("GET",url,true);
-        xhr.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200){
-                let response3 = JSON.parse(this.responseText);
-                console.log(response3)
-                displayMovie6(response3)
-            } else if(this.readyState == 4){
-                console.log("Error :(",this.statusText)
-            }
-        }
-        xhr.send();
-}
-function displayMovie6(data){
-    let LukeFilm6 = document.getElementById("lukeFilm6");
-    if (data.response === "error"){
-        LukeFilm6.innerHTML = `<p>Error: ${data.error}</p>`
-    } else{
-        LukeFilm6.innerHTML = `
-        
-            <table class="table table-dark">
-                    
-                <tr class="table-light">
-
-                    <th class="table-light">Name</th>
-                    <td class="table-light">${data.title}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Episode ID</th>
-                    <td class="table-light">${data.episode_id}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Opening crawl</th>
-                    <td class="table-light">${data.opening_crawl}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Director</th>
-                    <td class="table-light">${data.director}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Producer</th>
-                    <td class="table-light">${data.producer}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Release date</th>
-                    <td class="table-light">${data.release_date}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Created</th>
-                    <td class="table-light">${data.created}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Edited</th>
-                    <td class="table-light">${data.edited}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Url</th>
-                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
-
-                </tr>
-            </table>
-        
-        `
-    }
-}
-function fetchMovie7(){
-    let xhr = new XMLHttpRequest();
-        let url = "https://swapi.py4e.com/api/films/7/"
-        xhr.open("GET",url,true);
-        xhr.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200){
-                let response3 = JSON.parse(this.responseText);
-                console.log(response3)
-                displayMovie7(response3)
-            } else if(this.readyState == 4){
-                console.log("Error :(",this.statusText)
-            }
-        }
-        xhr.send();
-}
-function displayMovie7(data){
-    let LukeFilm7 = document.getElementById("lukeFilm7");
-    if (data.response === "error"){
-        LukeFilm7.innerHTML = `<p>Error: ${data.error}</p>`
-    } else{
-        LukeFilm7.innerHTML = `
-        
-            <table class="table table-dark">
-                    
-                <tr class="table-light">
-
-                    <th class="table-light">Name</th>
-                    <td class="table-light">${data.title}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Episode ID</th>
-                    <td class="table-light">${data.episode_id}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Opening crawl</th>
-                    <td class="table-light">${data.opening_crawl}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Director</th>
-                    <td class="table-light">${data.director}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Producer</th>
-                    <td class="table-light">${data.producer}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Release date</th>
-                    <td class="table-light">${data.release_date}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Created</th>
-                    <td class="table-light">${data.created}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Edited</th>
-                    <td class="table-light">${data.edited}</td>
-
-                </tr>
-                <tr class="table-dark">
-
-                    <th class="table-light">Url</th>
-                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
-
-                </tr>
-            </table>
-        
-        `
-    }
-}
-function fetchMovies(){
-    fetchMovie1()
-    fetchMovie2()
-    fetchMovie3()
-    fetchMovie6()
-    fetchMovie7()
-}
-//SPECIES
+//SPECIES Check
 function fetchSpecies(){
     let xhr = new XMLHttpRequest();
-        let url = "https://swapi.py4e.com/api/species/1/"
+    let starId = document.getElementById("idstar").value;
+    let urlStar = `https://swapi.py4e.com/api/people/${starId}/`
+    xhr.open("GET",urlStar,true);
+    xhr.onreadystatechange = function(){
+    if(this.readyState === 4 && this.status === 200){
+        let response = JSON.parse(this.responseText);
+        let species = response.species
+        let xhr = new XMLHttpRequest();
+        let url = species
         xhr.open("GET",url,true);
         xhr.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200){
-                let response = JSON.parse(this.responseText);
-                console.log(response)
-                displaySpecies(response)
-            } else if(this.readyState == 4){
-                console.log("Error :(",this.statusText)
+        
+        if(this.readyState === 4 && this.status === 200){
+            let starSpecies = JSON.parse(this.responseText);
+            displaySpecies(starSpecies)
+
+        } else if(this.readyState == 4){
+            console.log("Error :(",this.statusText)
             }
         }
-        xhr.send();
+            xhr.send();
+
+    } else if(this.readyState == 4){
+        console.log("Error :(",this.statusText)
+        }
+    }
+    xhr.send();
 }
 function displaySpecies(data){
-    let LukeSpecies = document.getElementById("lukeSpecies");
+    let Species = document.getElementById("starSpecies");
     if (data.response === "error"){
-        LukeSpecies.innerHTML = `<p>Error: ${data.error}</p>`
+        Species.innerHTML = `<p>Error: ${data.error}</p>`
     } else{
-        LukeSpecies.innerHTML = `
+        Species.innerHTML = `
+        <table class="table table-dark">
+            <tr>    
+                <th class="table-dark">Species</th>
+                <td> 
+                 
             <table class="table table-dark">     
                 <tr class="table-light">
                 
@@ -715,8 +455,9 @@ function displaySpecies(data){
         `
     }
 }
+
 //VEHICLES
-function fetchVehicle1(){
+function fetchVehicle(){
     let xhr = new XMLHttpRequest();
         let url = "https://swapi.py4e.com/api/vehicles/14/"
         xhr.open("GET",url,true);
@@ -724,227 +465,70 @@ function fetchVehicle1(){
             if(this.readyState === 4 && this.status === 200){
                 let response = JSON.parse(this.responseText);
                 console.log(response)
-                displayVehicle1(response)
+                displayVehicle(response)
             } else if(this.readyState == 4){
                 console.log("Error :(",this.statusText)
             }
         }
         xhr.send();
 }
-function displayVehicle1(data){
-    let LukeVehi = document.getElementById("vehicles1");
+function displayVehicle(data){
+    let Vehicle = document.getElementById("vehicles");
     if (data.response === "error"){
-        LukeVehi.innerHTML = `<p>Error: ${data.error}</p>`
+        Vehicle.innerHTML = `<p>Error: ${data.error}</p>`
     } else{
-        LukeVehi.innerHTML = `
-            <table class="table table-dark">
-
-                <tr class="table-light">
+        Vehicle.innerHTML = `
+        <table class="table table-dark">
+            <tr>    
+                <th class="table-dark">Vehicles</th>
                 
-                    <th class="table-light">Name</th>
-                    <td class="table-light">${data.name}</td>
+            <td id="the_vehicles"></td>
                 
-                </tr>
-                <tr class="table-light">
-                
-                    <th class="table-light">Model</th>
-                    <td class="table-light">${data.model}</td>
-            
-                </tr>
-                <tr class="table-light">
-                
-                    <th class="table-light">Manufacturer</th>
-                    <td class="table-light">${data.manufacturer}</td>
-                
-                </tr>
-                <tr class="table-light">
-                
-                    <th class="table-light">Cost in credits</th>
-                    <td class="table-light">${data.cost_in_credits}</td>
-                
-                </tr>
-                <tr class="table-light">
-            
-                    <th class="table-light">Length</th>
-                    <td class="table-light">${data.length}</td>
-
-                </tr>
-                <tr class="table-dark">
-            
-                    <th class="table-light">Max atmosphering speed</th>
-                    <td class="table-light">${data.max_atmosphering_speed}</td>
-            
-                </tr>
-                <tr class="table-light">
-            
-                    <th class="table-light">Crew</th>
-                    <td class="table-light">${data.crew}</td>
-            
-                </tr>
-                <tr class="table-light">
-            
-                    <th class="table-light">Passengers</th>
-                    <td class="table-light">${data.passengers}</td>
-            
-                </tr>
-                <tr class="table-light">
-            
-                    <th class="table-light">Cargo capacity</th>
-                    <td class="table-light">${data.cargo_capacity}</td>
-            
-                </tr>
-                <tr class="table-light">
-            
-                    <th class="table-light">Consumables</th>
-                    <td class="table-light">${data.consumables}</td>
-            
-                </tr>
-                <tr class="table-light">
-            
-                    <th class="table-light">Vehicle class</th>
-                    <td class="table-light">${data.vehicle_class}</td>
-            
-                </tr>
-                <tr class="table-light">
-            
-                    <th class="table-light">Created</th>
-                    <td class="table-light">${data.created}</td>
-            
-                </tr>
-                <tr class="table-light">
-            
-                    <th class="table-light">Edited</th>
-                    <td class="table-light">${data.edited}</td>
-            
-                </tr>
-                <tr class="table-light">
-            
-                    <th class="table-light">Url</th>
-                    <td class="table-light"><a href="${data.url}">${data.url}</a></td>
-            
-                </tr>
-
-            </table>
+            </tr>
+        </table>
         `
     }
 }
-function fetchVehicle2(){
+
+function fetchStarship(){
     let xhr = new XMLHttpRequest();
-        let url = "https://swapi.py4e.com/api/vehicles/30/"
+        let url = "https://swapi.py4e.com/api/vehicles/14/"
         xhr.open("GET",url,true);
         xhr.onreadystatechange = function(){
             if(this.readyState === 4 && this.status === 200){
                 let response = JSON.parse(this.responseText);
                 console.log(response)
-                displayVehicle2(response)
+                displayStarship(response)
             } else if(this.readyState == 4){
                 console.log("Error :(",this.statusText)
             }
         }
         xhr.send();
 }
-function displayVehicle2(data){
-    let LukeVehi = document.getElementById("vehicles2");
+function displayStarship(data){
+    let Vehicle = document.getElementById("starships");
     if (data.response === "error"){
-        LukeVehi.innerHTML = `<p>Error: ${data.error}</p>`
+        Vehicle.innerHTML = `<p>Error: ${data.error}</p>`
     } else{
-        LukeVehi.innerHTML = `
-            <table class="table table-dark">
-              
-                <table class="table table-light">
-                                
-                    <tr class="table-light">
+        Vehicle.innerHTML = `
+        <table class="table table-dark">
+            <tr>    
+                <th class="table-dark">Starships</th>
                 
-                        <th class="table-light">Name</th>
-                        <td class="table-light">${data.name}</td>
-                
-                    </tr>
-                    <tr class="table-light">
-                
-                        <th class="table-light">Model</th>
-                        <td class="table-light">${data.model}</td>
-            
-                    </tr>
-                    <tr class="table-light">
-                
-                        <th class="table-light">Manufacturer</th>
-                        <td class="table-light">${data.manufacturer}</td>
-                
-                    </tr>
-                    <tr class="table-light">
-                
-                        <th class="table-light">Cost in credits</th>
-                        <td class="table-light">${data.cost_in_credits}</td>
-                
-                    </tr>
-                    <tr class="table-light">
-            
-                        <th class="table-light">Length</th>
-                        <td class="table-light">${data.length}</td>
-
-                    </tr>
-                    <tr class="table-dark">
-            
-                        <th class="table-light">Max atmosphering speed</th>
-                        <td class="table-light">${data.max_atmosphering_speed}</td>
-            
-                    </tr>
-                    <tr class="table-light">
-            
-                        <th class="table-light">Crew</th>
-                        <td class="table-light">${data.crew}</td>
-            
-                    </tr>
-                    <tr class="table-light">
-            
-                        <th class="table-light">Passengers</th>
-                        <td class="table-light">${data.passengers}</td>
-            
-                    </tr>
-                    <tr class="table-light">
-            
-                        <th class="table-light">Cargo capacity</th>
-                        <td class="table-light">${data.cargo_capacity}</td>
-            
-                    </tr>
-                    <tr class="table-light">
-            
-                        <th class="table-light">Consumables</th>
-                        <td class="table-light">${data.consumables}</td>
-            
-                    </tr>
-                    <tr class="table-light">
-            
-                        <th class="table-light">Vehicle class</th>
-                        <td class="table-light">${data.vehicle_class}</td>
-            
-                    </tr>
-                    <tr class="table-light">
-            
-                        <th class="table-light">Created</th>
-                        <td class="table-light">${data.created}</td>
-            
-                    </tr>
-                    <tr class="table-light">
-            
-                        <th class="table-light">Edited</th>
-                        <td class="table-light">${data.edited}</td>
-            
-                    </tr>
-                    <tr class="table-light">
-            
-                        <th class="table-light">Url</th>
-                        <td class="table-light"><a href="${data.url}">${data.url}</a></td>
-            
-                    </tr>
-            </table>
-          
+                <td id="te_starships"></td>
+                    
+            </tr>
+        </table>
         `
     }
 }
 
-function fetchVehi(){
-    fetchVehicle1()
-    fetchVehicle2()
+
+function fetchInfo(){
+    fetchStar()
+    fetchHome()
+    fetchMovies()
+    fetchSpecies()
+    fetchVehicle()
+    fetchStarship()
 }
-window.addEventListener("load", fetchLucke(),fetchHome(), fetchMovies(),fetchSpecies(),fetchVehi());
