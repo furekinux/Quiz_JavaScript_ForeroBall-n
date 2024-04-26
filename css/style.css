@@ -11,37 +11,33 @@ img{
     position: fixed;
 }
 .background{
-    top: 28em;
+    top: 25em;
     z-index: 99;
     position:relative;
     background: linear-gradient(#00000000 0%,#09184ed3 5%);
     padding: 0.5em;
 }
 h1{
-    font-size: 3em;
+    font-size: 3.5em;
     margin-bottom: 0.3em;
     margin-top: 0.2em;
     font-weight: 1000;
-    background: -webkit-linear-gradient(0.25turn,#ffffff, #272727);
+    background: -webkit-linear-gradient(0.25turn,#ffffff, #cacaca, #616161);
+    background-clip: #000000;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 0.02em;
+    -webkit-text-stroke-width: 0.03em;
     -webkit-text-stroke-color: #000000;
-    text-shadow: 0em 0 0.5em #ffffff;
 }
-.tablita{
-    width: 87em;
-}
+
 button{
     background:transparent;
     width: 2em;
     border: transparent;
     cursor: pointer;
     z-index: 99;
-    top: 10em;
 }
 input{
-
     z-index: 98;
     width: 15em;
     height: 3em;
@@ -50,7 +46,7 @@ input{
 .logo{
     width: 30em;
     position: absolute;
-    top: 12em;
+    top: 10em;
     opacity: 80%;
 }
 .logo_cont{
