@@ -347,21 +347,23 @@ function fetchSpecies(){
     if(this.readyState === 4 && this.status === 200){
         let response = JSON.parse(this.responseText);
         let species = response.species
-        let xhr = new XMLHttpRequest();
-        let url = species
-        xhr.open("GET",url,true);
-        xhr.onreadystatechange = function(){
-        
-        if(this.readyState === 4 && this.status === 200){
-            let starSpecies = JSON.parse(this.responseText);
-            displaySpecies(starSpecies)
+        tamanio = species.length
+        if(tamanio>0){
+            let xhr = new XMLHttpRequest();
+            let url = species
+            xhr.open("GET",url,true);
+            xhr.onreadystatechange = function(){
+            
+            if(this.readyState === 4 && this.status === 200){
+                let starSpecies = JSON.parse(this.responseText);
+                displaySpecies(starSpecies)
 
-        } else if(this.readyState == 4){
-            console.log("Error :(",this.statusText)
+            } else if(this.readyState == 4){
+                console.log("Error :(",this.statusText)
+                }
             }
+                xhr.send();
         }
-            xhr.send();
-
     } else if(this.readyState == 4){
         console.log("Error :(",this.statusText)
         }
@@ -459,16 +461,25 @@ function displaySpecies(data){
 //VEHICLES
 function fetchVehicle(){
     let xhr = new XMLHttpRequest();
-        let url = "https://swapi.py4e.com/api/vehicles/14/"
-        xhr.open("GET",url,true);
-        xhr.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200){
-                let response = JSON.parse(this.responseText);
-                console.log(response)
-                displayVehicle(response)
-            } else if(this.readyState == 4){
-                console.log("Error :(",this.statusText)
-            }
+    let starId = document.getElementById("idstar").value;
+    let urlStar = `https://swapi.py4e.com/api/people/${starId}/`
+    xhr.open("GET",urlStar,true);
+    xhr.onreadystatechange = function(){
+        if(this.readyState === 4 && this.status === 200){
+            let response = JSON.parse(this.responseText);
+            console.log(response)
+            let vehiUrl = response.vehicles
+            vehiUrl.forEach(vehiUrl => {
+                fetch(vehiUrl)
+                    .then(response => response.json())
+                    .then(vehicleInfo => {
+                        console.log(vehicleInfo)
+                    })
+            });
+                
+        } else if(this.readyState == 4){
+            console.log("Error :(",this.statusText)
+        }
         }
         xhr.send();
 }
@@ -477,7 +488,7 @@ function displayVehicle(data){
     if (data.response === "error"){
         Vehicle.innerHTML = `<p>Error: ${data.error}</p>`
     } else{
-        Vehicle.innerHTML = `
+        Vehicle.appendChild = `
         <table class="table table-dark">
             <tr>    
                 <th class="table-dark">Vehicles</th>
